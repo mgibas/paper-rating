@@ -1,0 +1,65 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<!--
+`star-rating`
+Nice rating element build with iron-icons
+
+@demo demo/index.html 
+-->
+
+<dom-module id="star-rating">
+    <template>
+        <style>
+        iron-icon[active] {
+            color: var(--rating-active-color, --accent-color);
+        }
+        
+        iron-icon {
+            color: var(--rating-inactive-color, --disabled-text-color);
+        }
+        </style>
+        <template is="dom-repeat" items="[[_stars]]">
+            <iron-icon icon="[[icon]]" active$="[[item]]"></iron-icon>
+        </template>
+    </template>
+
+    <script>
+    (() => {
+        'use strict';
+        class StarRating {
+            get is() {
+                return 'star-rating';
+            }
+            get properties() {
+                return {
+                    rating: {
+                        type: Number
+                    },
+                    max: {
+                        type: Number,
+                        value: 5
+                    },
+                    icon: {
+                        type: String,
+                        value: 'star'
+                    },
+                    _stars: {
+                        type: Array,
+                        computed: '_computeStars(max,rating)'
+                    }
+                };
+            }
+            _computeStars(max, rating) {
+                var result = Array.apply(null, Array(max)).map(Boolean.prototype.valueOf, false);
+                for (var i = 0; i < Math.round(rating); i++) {
+                    result[i] = true;
+                }
+                return result;
+            }
+        }
+        Polymer(StarRating);
+    })();
+    </script>
+</dom-module>
