@@ -10,6 +10,7 @@
         <paper-rating rating="4"></paper-rating>
         <paper-rating rating="7" max="10"></paper-rating>
         <paper-rating rating="4" icon="favorite"></paper-rating>
+        <paper-rating rating="4" disabled></paper-rating>
 
 ### Styling
 
@@ -24,16 +25,28 @@ Custom property | Description | Default
 <dom-module id="paper-rating">
     <template>
         <style>
+        :host(:hover:not([disabled])) iron-icon:not([active]) {
+            color: var(--paper-rating-active-color, --accent-color);
+        }
+        
         iron-icon[active] {
             color: var(--paper-rating-active-color, --accent-color);
         }
         
-        iron-icon {
+        iron-icon:not([active]) {
+            color: var(--paper-rating-inactive-color, --disabled-text-color);
+        }
+        
+        :host(:not([disabled])) iron-icon:hover {
+            color: var(--paper-rating-active-color, --accent-color);
+        }
+        
+        :host(:not([disabled])) iron-icon:hover ~ iron-icon {
             color: var(--paper-rating-inactive-color, --disabled-text-color);
         }
         </style>
         <template is="dom-repeat" items="[[_stars]]">
-            <iron-icon icon="[[icon]]" active$="[[item]]"></iron-icon>
+            <iron-icon icon="[[icon]]" active$="[[item]]" data-index$="[[index]]" on-tap="_updateRating"></iron-icon>
         </template>
     </template>
     <script>
@@ -44,7 +57,8 @@ Custom property | Description | Default
              * Rating value.
              */
             rating: {
-                type: Number
+                type: Number,
+                notify: true
             },
             /**
              * Rating maximum value - this will determine amount of 'stars'.
@@ -60,6 +74,14 @@ Custom property | Description | Default
                 type: String,
                 value: 'star'
             },
+            /**
+             * Disable it for read only mode.
+             */
+            disabled: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
             _stars: {
                 type: Array,
                 computed: '_computeStars(max,rating)'
@@ -71,6 +93,10 @@ Custom property | Description | Default
                 result[i] = true;
             }
             return result;
+        },
+        _updateRating: function(e) {
+            if (this.disabled) return;
+            this.rating = Number(e.target.dataset['index']) + 1;
         }
     });
     </script>
