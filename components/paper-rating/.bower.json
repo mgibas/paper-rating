@@ -1,0 +1,27 @@
+{
+  "name": "paper-rating",
+  "description": "Simple rating element build with iron-icons",
+  "main": "paper-rating.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "iron-icon": "PolymerElements/iron-icon#^1.0.0",
+    "iron-icons": "polymerelements/iron-icons#^1.1.3"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "homepage": "https://github.com/mgibas/paper-rating",
+  "_release": "1abad36910",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "1abad36910ccf6493dd79f13321b230290044094"
+  },
+  "_source": "https://github.com/mgibas/paper-rating.git",
+  "_target": "master",
+  "_originalSource": "mgibas/paper-rating",
+  "_direct": true
+}

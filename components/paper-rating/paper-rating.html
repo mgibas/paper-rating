@@ -1,0 +1,103 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<!--
+`paper-rating` is a simple rating element build with iron-icons.
+
+### Example
+
+        <paper-rating rating="4"></paper-rating>
+        <paper-rating rating="7" max="10"></paper-rating>
+        <paper-rating rating="4" icon="favorite"></paper-rating>
+        <paper-rating rating="2" disabled></paper-rating>
+
+### Styling
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--paper-rating-active-color` | Color of active icon | `--accent-color`
+`--paper-rating-inactive-color` | Color of inactive icon | `--disabled-text-color`
+
+@demo demo/index.html 
+-->
+
+<dom-module id="paper-rating">
+    <template>
+        <style>
+        :host(:hover:not([disabled])) iron-icon:not([active]) {
+            color: var(--paper-rating-active-color, --accent-color);
+        }
+        
+        iron-icon[active] {
+            color: var(--paper-rating-active-color, --accent-color);
+        }
+        
+        iron-icon:not([active]) {
+            color: var(--paper-rating-inactive-color, --disabled-text-color);
+        }
+        
+        :host(:not([disabled])) iron-icon:hover {
+            color: var(--paper-rating-active-color, --accent-color);
+        }
+        
+        :host(:not([disabled])) iron-icon:hover ~ iron-icon {
+            color: var(--paper-rating-inactive-color, --disabled-text-color);
+        }
+        </style>
+        <template is="dom-repeat" items="[[_stars]]">
+            <iron-icon icon="[[icon]]" active$="[[item]]" data-index$="[[index]]" on-tap="_updateRating"></iron-icon>
+        </template>
+    </template>
+    <script>
+    Polymer({
+        is: 'paper-rating',
+        properties: {
+            /**
+             * Rating value.
+             */
+            rating: {
+                type: Number,
+                notify: true
+            },
+            /**
+             * Rating maximum value - this will determine amount of 'stars'.
+             */
+            max: {
+                type: Number,
+                value: 5
+            },
+            /**
+             * Name of iron-icon to use.
+             */
+            icon: {
+                type: String,
+                value: 'star'
+            },
+            /**
+             * Disable it for read only mode.
+             */
+            disabled: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            _stars: {
+                type: Array,
+                computed: '_computeStars(max,rating)'
+            }
+        },
+        _computeStars: function(max, rating) {
+            var result = Array.apply(null, Array(max)).map(Boolean.prototype.valueOf, false);
+            for (var i = 0; i < Math.round(rating); i++) {
+                result[i] = true;
+            }
+            return result;
+        },
+        _updateRating: function(e) {
+            if (this.disabled) return;
+            this.rating = Number(e.target.dataset['index']) + 1;
+        }
+    });
+    </script>
+</dom-module>
