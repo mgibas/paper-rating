@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
@@ -10,19 +11,44 @@
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
     <link rel="import" href="../paper-rating.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
+    paper-rating {
+        display: block;
+        margin: 1rem 0;
+    }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="vertical-section-container centered">
-      <h3>Basic paper-rating demo</h3>
-      <demo-snippet>
-        <template>
-          <paper-rating></paper-rating>
-        </template>
-      </demo-snippet>
+        <h3>Basic</h3>
+        <demo-snippet>
+            <template>
+                <paper-rating rating="4"></paper-rating>
+            </template>
+        </demo-snippet>
     </div>
-  </body>
+    <div class="vertical-section-container centered">
+        <h3>Customized max - 7/10</h3>
+        <demo-snippet>
+            <template>
+                <paper-rating rating="7" max="10"></paper-rating>
+            </template>
+        </demo-snippet>
+    </div>
+    <div class="vertical-section-container centered">
+        <h3>Custom icon</h3>
+        <demo-snippet>
+            <template>
+                <paper-rating rating="4" icon="favorite"></paper-rating>
+                <paper-rating rating="4" icon="thumb-up"></paper-rating>
+                <paper-rating rating="4" icon="android"></paper-rating>
+            </template>
+        </demo-snippet>
+    </div>
+</body>
+
 </html>
