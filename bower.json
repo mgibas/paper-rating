@@ -1,7 +1,7 @@
 {
-  "name": "star-rating",
-  "description": "Nice rating element build with iron-icons",
-  "main": "star-rating.html",
+  "name": "paper-rating",
+  "description": "Simple rating element build with iron-icons",
+  "main": "paper-rating.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "iron-icon": "PolymerElements/iron-icon#^1.0.0",

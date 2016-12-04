@@ -4,25 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>star-rating test</title>
+    <title>paper-rating test</title>
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../star-rating.html">
+    <link rel="import" href="../paper-rating.html">
   </head>
   <body>
     <test-fixture id="basic">
       <template>
-        <star-rating></star-rating>
+        <paper-rating></paper-rating>
       </template>
     </test-fixture>
 
     <script>
-      suite('star-rating', function() {
+      suite('paper-rating', function() {
         test('instantiating the element works', function() {
           var element = fixture('basic');
-          assert.equal(element.is, 'star-rating');
+          assert.equal(element.is, 'paper-rating');
         });
       });
     </script>

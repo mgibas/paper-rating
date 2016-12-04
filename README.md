@@ -1,4 +1,4 @@
-# \<star-rating\>
+# \<paper-rating\>
 
 Nice rating element build with iron-icons
 
