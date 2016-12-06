@@ -2,6 +2,15 @@
   "name": "paper-rating",
   "description": "Simple rating element build with iron-icons",
   "main": "paper-rating.html",
+  "keywords":[
+    "web-components",
+    "polymer",
+    "rating"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgibas/paper-rating.git"
+  },
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "iron-icon": "PolymerElements/iron-icon#^1.0.0",
