@@ -18,7 +18,7 @@ Custom property | Description | Default
 ----------------|-------------|----------
 `--paper-rating-active-color` | Color of active icon | `--accent-color`
 `--paper-rating-inactive-color` | Color of inactive icon | `--disabled-text-color`
-`--paper-rating-icon-margin` | Margin between icons | `0px`
+`--paper-rating-icon` | Mixin for the icons | `{}`
 
 @demo demo/index.html
 -->
@@ -47,7 +47,7 @@ Custom property | Description | Default
         }
 
         iron-icon {
-            margin: var(--paper-rating-icon-margin, 0px);
+            @apply(--paper-rating-icon);
         }
         </style>
         <template is="dom-repeat" items="[[_stars]]">
