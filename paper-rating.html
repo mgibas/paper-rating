@@ -18,8 +18,9 @@ Custom property | Description | Default
 ----------------|-------------|----------
 `--paper-rating-active-color` | Color of active icon | `--accent-color`
 `--paper-rating-inactive-color` | Color of inactive icon | `--disabled-text-color`
+`--paper-rating-icon` | Mixin for the icons | `{}`
 
-@demo demo/index.html 
+@demo demo/index.html
 -->
 
 <dom-module id="paper-rating">
@@ -28,21 +29,25 @@ Custom property | Description | Default
         :host(:hover:not([disabled])) iron-icon:not([active]) {
             color: var(--paper-rating-active-color, --accent-color);
         }
-        
+
         iron-icon[active] {
             color: var(--paper-rating-active-color, --accent-color);
         }
-        
+
         iron-icon:not([active]) {
             color: var(--paper-rating-inactive-color, --disabled-text-color);
         }
-        
+
         :host(:not([disabled])) iron-icon:hover {
             color: var(--paper-rating-active-color, --accent-color);
         }
-        
+
         :host(:not([disabled])) iron-icon:hover ~ iron-icon {
             color: var(--paper-rating-inactive-color, --disabled-text-color);
+        }
+
+        iron-icon {
+            @apply(--paper-rating-icon);
         }
         </style>
         <template is="dom-repeat" items="[[_stars]]">
