@@ -11,8 +11,6 @@
     </a>
 </p>
 
-===
-
 _[Demo and API docs](https://mgibas.github.io/paper-rating/components/paper-rating/)_
 
 `paper-rating` is a simple rating element build with iron-icons
