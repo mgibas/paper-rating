@@ -3,8 +3,8 @@
     <a href="https://beta.webcomponents.org/element/mgibas/paper-rating">
         <img src="https://img.shields.io/badge/webcomponents.org-published-blue.svg"></img>
     </a>
-    <a href="https://www.gitcheese.com/app/#/projects/53b5dab0-fc19-49f5-9533-9aebf9b662ed/pledges/create">
-        <img src="https://api.gitcheese.com/v1/projects/53b5dab0-fc19-49f5-9533-9aebf9b662ed/badges"></img>
+    <a href="https://www.gitcheese.com/donate/users/530319/repos/75494080">
+        <img src="https://s3.amazonaws.com/gitcheese-ui-master/images/badge.svg"></img>
     </a>
     <a href="https://github.com/salte-io/paper-rating">
         <img src="https://img.shields.io/bower/v/paper-rating.svg"></img>
